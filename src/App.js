@@ -35,7 +35,14 @@ class NbaStanding extends Component {
 
   async componentDidMount() {
     try {
-      const data = await fetch("http://localhost:8080/controller/equipe");
+      const data = await fetch("http://localhost:8080/controller/equipe", {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({date: "06/26/2017"}) 
+      });
       const body = await data.json();
       this.setState({
         standings: body,
