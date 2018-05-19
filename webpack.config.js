@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 module.exports = {
+  mode: 'development',
   entry: [
     'babel-polyfill',
     './src/index.js',
@@ -31,18 +32,22 @@ module.exports = {
      }
    ]
    },
-   plugins: [new HtmlWebPackPlugin({
-    template: "./public/index.html",
-    filename: "./index.html"
-   })],
+   plugins: [
+     new HtmlWebPackPlugin({
+       template: "./public/index.html",
+       filename: "./index.html"
+     })
+   ],
    devServer: {
-    historyApiFallback: true,
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000
+     historyApiFallback: true,
+     contentBase: path.join(__dirname, "dist"),
+     compress: true,
+     port: 9000
    },
+   /*performance: {
+     hints: process.env.NODE_ENV === 'production' ? "warning" : false
+   },*/
    resolve: {
      extensions: ['.webpack.js', '.web.js', '.js']
    },
-
 };
