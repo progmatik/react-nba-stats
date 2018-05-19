@@ -50,12 +50,8 @@ class NbaStanding extends Component {
   render() {
     return(
       <div>
-        {
-	  this.createStandingTemplate(this.state.eastStanding)
-	}
-	{
-	  this.createStandingTemplate(this.state.westStanding)
-	}
+        {this.createStandingTemplate(this.state.eastStanding)}
+	{this.createStandingTemplate(this.state.westStanding)}
       </div>
     );
   }
